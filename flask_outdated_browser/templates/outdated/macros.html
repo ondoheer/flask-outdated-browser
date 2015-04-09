@@ -1,0 +1,79 @@
+{% macro init() %}
+    <!-- ========================= Outdated Browser ================== -->
+    <div id="outdated"></div>
+{% endmacro %}
+
+{% macro style() %}
+    {% if config["OUTDATED_BROWSER_MINIFIED"] %}
+        <link rel="stylesheet" href="{{url_for('outdated.static', filename='css/outdatedbrowser.min.css')}}"/>
+
+    {% else %}
+        <link rel="stylesheet" href="{{url_for('outdated.static', filename='css/outdatedbrowser.css')}}"/>
+    {% endif %}
+
+
+{% endmacro %}
+
+
+{% macro script() %}
+    {% set lang = config['OUTDATED_BROWSER_LANGUAGE'] %}
+    {% set lang_path = 'lang/'+ lang +'.html'%}
+    {% set browser = config['OUTDATED_BROWSER_FOR'] %}
+    {% if config["OUTDATED_BROWSER_MINIFIED"] %}
+        <script src="{{url_for('outdated.static', filename='js/outdatedbrowser.min.js')}}"></script>
+
+    {% else %}
+        <script src="{{url_for('outdated.static', filename='js/outdatedbrowser.js')}}"></script>
+    {% endif %}
+        <script>
+        //event listener: DOM ready
+        function addLoadEvent(func) {
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            } else {
+                window.onload = function() {
+                    if (oldonload) {
+                        oldonload();
+                    }
+                    func();
+                }
+            }
+        }
+        </script>
+    {% if not config['OUTDATED_BROWSER_AJAX']%}
+        {% set lang_path = ''%}
+
+        <div id="outdated">
+             {% include "outdated/lang/en.html" %}
+        </div>
+    {% endif %}
+
+    {% if not config['OUTDATED_BROWSER_JQUERY'] %}
+        <script>
+        //call plugin function after DOM ready
+        addLoadEvent(function(){
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: '{{browser}}',
+                languagePath: "{{lang_path}}"
+            });
+        });
+        </script>
+    {% else %}
+        <script>
+        $( document ).ready(function() {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'transform',
+                languagePath: "{{ url_for('templates', filename='lang_path')}}"
+            })
+        });
+        </script>
+
+    {% endif %}
+
+
+{% endmacro %}

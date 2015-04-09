@@ -19,10 +19,10 @@ def read(fname):
 
 
 setup(
-    name='flask-outdated-browser',
+    name='Flask-outdated-browser',
     version='0.01',
-    packages=['flask-outdated-browser'],
-    url='https://github.com/ondoheer/flask-outdated-browser',
+    packages=['flask_outdated_browser'],
+    url='https://github.com/ondoheer/flask_outdated_browser',
     license='MIT',
     author='Pedro Baumann',
     author_email='ondoheer@gmail.com',
@@ -38,7 +38,7 @@ setup(
 
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',

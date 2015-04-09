@@ -37,6 +37,8 @@ class OutdatedBrowser(object):
 
         self.app = app
 
+
+
         app.config.setdefault('OUTDATED_BROWSER_FOR', "IE10")
         app.config.setdefault('OUTDATED_BROWSER_JQUERY', False)
         app.config.setdefault('OUTDATED_BROWSER_AJAX', False)
@@ -44,14 +46,16 @@ class OutdatedBrowser(object):
         app.config.setdefault('OUTDATED_BROWSER_LANGUAGE', 'en')
 
         blueprint = Blueprint(
-            'outdated_browser',
+            'outdated',
             __name__,
             static_folder='static',
             template_folder='templates',
-            static_url_path=app.static_url_path + '/outdated_browser',
+            static_url_path=app.static_url_path + '/outdated',
         )
 
         app.register_blueprint(blueprint)
+
+
 
 
 

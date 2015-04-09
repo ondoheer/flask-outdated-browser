@@ -1,0 +1,14 @@
+{% import "outdated/macros.html" as outdated %}
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Outdated Browser</title>
+    {{ outdated.style() }}
+</head>
+<body>
+    {{ outdated.init() }}
+    {{ outdated.script() }}
+</body>
+</html>
