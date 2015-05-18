@@ -9,3 +9,4 @@ Flask Outdated Browser
 
 A simple way to add outdated browser to your Flask project using python code.
 
+
