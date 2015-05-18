@@ -20,7 +20,7 @@ def read(fname):
 
 setup(
     name='Flask-outdated-browser',
-    version='0.01',
+    version='0.1',
     packages=['flask_outdated_browser'],
     url='https://github.com/ondoheer/flask_outdated_browser',
     license='MIT',
