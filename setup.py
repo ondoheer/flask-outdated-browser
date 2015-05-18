@@ -26,7 +26,7 @@ setup(
     license='MIT',
     author='Pedro Baumann',
     author_email='ondoheer@gmail.com',
-    description='Easily add outdated-browser project to your Flask project',
+    description='Easily add outdated-browser project to your Flask application',
     long_description=read('README.rst'),
     include_package_data=True,
     zip_safe=False,
@@ -35,7 +35,6 @@ setup(
         'Flask>=0.8'
     ],
     classifiers=[
-
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
